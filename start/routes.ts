@@ -28,6 +28,12 @@ import Route from '@ioc:Adonis/Core/Route';
 //   return report.healthy ? response.ok(report) : response.badRequest(report);
 // });
 
-Route.get('/', async () => {
-  return { hello: 'world' };
-});
+Route.group(() => {
+  Route.post('/login', 'AuthController.login');
+
+  Route.group(() => {
+    Route.post('/logout', 'AuthController.logout');
+
+    Route.get('/users', 'UsersController.getUsers');
+  }).middleware('auth');
+}).prefix('/api');
