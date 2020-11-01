@@ -18,8 +18,16 @@
 |
 */
 
-import Route from '@ioc:Adonis/Core/Route'
+import Route from '@ioc:Adonis/Core/Route';
+
+// 資料庫連接測試
+// import HealthCheck from '@ioc:Adonis/Core/HealthCheck';
+// Route.get('/health', async ({ response }) => {
+//   const report = await HealthCheck.getReport();
+
+//   return report.healthy ? response.ok(report) : response.badRequest(report);
+// });
 
 Route.get('/', async () => {
-  return { hello: 'world' }
-})
+  return { hello: 'world' };
+});
