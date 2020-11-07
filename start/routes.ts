@@ -36,4 +36,6 @@ Route.group(() => {
 
     Route.get('/users', 'UsersController.getUsers');
   }).middleware('auth');
-}).prefix('/api');
+})
+  .prefix('/api')
+  .middleware('acl');
