@@ -35,6 +35,9 @@ Route.group(() => {
     Route.post('/logout', 'AuthController.logout');
 
     Route.get('/users', 'UsersController.getUsers');
+    Route.post('/user', 'UsersController.insertUser');
+    Route.patch('/user/:userId', 'UsersController.patchUser');
+    Route.delete('user/:userId', 'UsersController.deleteUser');
   }).middleware('auth');
 })
   .prefix('/api')
