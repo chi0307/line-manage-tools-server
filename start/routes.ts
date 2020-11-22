@@ -33,11 +33,16 @@ Route.group(() => {
 
   Route.group(() => {
     Route.post('/logout', 'AuthController.logout');
-
+    // UsersController
     Route.get('/users', 'UsersController.getUsers');
     Route.post('/user', 'UsersController.insertUser');
     Route.patch('/user/:userId', 'UsersController.patchUser');
-    Route.delete('user/:userId', 'UsersController.deleteUser');
+    Route.delete('/user/:userId', 'UsersController.deleteUser');
+    // MessagesController
+    Route.get('/messages', 'MessagesController.getMessages');
+    Route.post('/message', 'MessagesController.insertMessage');
+    Route.patch('/message/:messageId', 'MessagesController.patchMessage');
+    Route.delete('/message/:messageId', 'MessagesController.deleteMessage');
   }).middleware('auth');
 })
   .prefix('/api')
